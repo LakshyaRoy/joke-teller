@@ -39,10 +39,20 @@ button.addEventListener("click", getJokes, () => {
 // jokeContainer = `${jokeText}`;
 
 function sayIt() {
+  toggleButton();
   responsiveVoice.setDefaultVoice("UK English Male");
   responsiveVoice.speak(`${jokeContainer.innerHTML}`);
 }
 setTimeout(sayIt, 2000);
+
+function toggleButton() {
+  if (responsiveVoice.isPlaying()) {
+    button.disabled = true;
+  } else {
+    button.disabled = false;
+  }
+  setTimeout(toggleButton, 2000);
+}
 // sButton.addEventListener("click", selectText, () => {
 //   sayIt();
 // });
